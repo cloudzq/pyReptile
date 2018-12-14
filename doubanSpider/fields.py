@@ -1,7 +1,6 @@
 from pyReptile.storage import *
 
 
-# 定义电影信息表的字段
 class MovieComment(DataStorage):
     # Define table metadata
     def field(self):
@@ -10,7 +9,6 @@ class MovieComment(DataStorage):
         self.comment = Column(String(3000), comment='评论内容')
 
 
-# 定义电影评论表的字段
 class MovieInfo(DataStorage):
     # Define table metadata
     def field(self):
