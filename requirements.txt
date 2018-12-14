@@ -1,0 +1,7 @@
+aiohttp
+BeautifulSoup4
+lxml
+html5lib
+SQLAlchemy
+pymysql
+pymssql
