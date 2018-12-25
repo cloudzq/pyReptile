@@ -5,3 +5,6 @@ html5lib
 SQLAlchemy
 pymysql
 pymssql
+redis
+csv
+pymongo
