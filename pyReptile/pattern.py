@@ -1,8 +1,9 @@
 from bs4 import BeautifulSoup
+import lxml
+from lxml.html.soupparser import fromstring as soup_parse
 
-# Define data cleaning classes
 class DataPattern(object):
-    def get_data(self, response, selector, **kwargs):
+    def cssSelector(self, response, selector, **kwargs):
         parser = kwargs.get('parser', 'html.parser')
         tempList = []
         soup = BeautifulSoup(response, parser)
@@ -11,5 +12,16 @@ class DataPattern(object):
             tempList.append(i.getText())
         return tempList
 
+    def xpath(self,response,selector, **kwargs):
+        parser = kwargs.get('parser', 'html.parser')
+        try:
+            soup = soup_parse(response, features=parser)
+        except:
+            soup = lxml.html.fromstring(response)
+        temp = soup.xpath(selector)
+        tempList = []
+        for i in temp:
+            tempList.append(i.text)
+        return tempList
 
 dataPattern = DataPattern()
